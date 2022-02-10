@@ -86,3 +86,25 @@ class ThirdTask implements Runnable {
         this.id = ++count;
     }
 }
+
+class FourthTechique {
+    public static void main(String[] args){
+        /*
+        Don't need id here as only one object will be created.
+         */
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 0 ;i < 10; i++) {
+                    System.out.println(" TICK TICK : " + i);
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        t.start();
+    }
+}
